@@ -19,6 +19,7 @@ bin/thermald
 bin/updatemiscta
 bin/usbhub
 bin/usbhub_init
+bin/sensors.qcom
 etc/firmware/dsps.b00
 etc/firmware/dsps.b01
 etc/firmware/dsps.b02
