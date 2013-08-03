@@ -148,6 +148,7 @@ lib/libQSEEComAPI.so
 lib/libril-qc-qmi-1.so
 lib/libsys-utils.so
 lib/libta.so
+usr/icudt48l.dat
 vendor/camera/APT00YP1.dat
 vendor/camera/flash.dat
 
