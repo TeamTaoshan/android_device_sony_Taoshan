@@ -51,9 +51,11 @@ etc/thermald.conf
 lib/hw/audio.primary.msm8960.so
 lib/hw/audio_policy.msm8960.so
 lib/hw/camera.msm8960.so
+lib/hw/copybit.msm8960.so
 lib/hw/gralloc.msm8960.so
 lib/hw/hwcomposer.msm8960.so
 lib/hw/gps.default.so
+lib/hw/lights.msm8960.so
 lib/hw/nfc.default.so
 lib/hw/sensors.msm8960.so
 lib/hw/sensors.qcom.so
