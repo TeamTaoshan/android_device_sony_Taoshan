@@ -114,13 +114,11 @@ lib/libqmi_common_so.so
 lib/libqmi_csi.so
 lib/libqmi_encdec.so
 lib/libqmiservices.so
+lib/libQSEEComAPI.so
 lib/libril-qc-qmi-1.so
 lib/libsys-utils.so
 lib/libta.so
 vendor/camera/APT00YP1.dat
-
-
-
 vendor/camera/flash.dat
 
 vendor/firmware/libpn544_fw_c3.so:vendor/firmware/libpn544_fw.so
