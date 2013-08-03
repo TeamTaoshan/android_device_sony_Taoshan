@@ -10,6 +10,8 @@ bin/netmgrd
 bin/qcks
 bin/qmuxd
 bin/qseecomd
+bin/qseecom_sample_client
+bin/qseecom_security_test
 bin/rmt_storage
 bin/ta_param_loader
 bin/ta_qmi_service
