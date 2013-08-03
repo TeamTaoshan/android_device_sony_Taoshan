@@ -12,7 +12,8 @@ bin/qmuxd
 bin/qseecomd
 bin/rmt_storage
 bin/ta_param_loader
-bin/ta_qmi_client
+bin/ta_qmi_service
+bin/ta_reader
 bin/taimport
 bin/thermald
 bin/updatemiscta
