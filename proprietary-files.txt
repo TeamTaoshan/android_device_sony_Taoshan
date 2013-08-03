@@ -85,16 +85,7 @@ lib/hw/sensors.qcom.so
 lib/libQSEEComAPI.so
 lib/lib_get_secure_mode.so
 lib/libacdbloader.so
-lib/libals.so
 lib/libaudcal.so
-lib/libcald_client.so
-lib/libcald_hal.so
-lib/libcald_imageutil.so
-lib/libcald_pal.so
-lib/libcald_server.so
-lib/libcald_util.so
-lib/libcamera_clientsemc.so
-lib/libcameralight.so
 lib/libcredential-manager-service.so
 lib/libcsd-client.so
 lib/libdiag.so
