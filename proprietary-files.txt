@@ -67,6 +67,7 @@ etc/init.qcom.sdio.sh
 etc/init.qcom.thermald_conf.sh
 etc/init.qcom.wifi.sh
 etc/media_codecs.xml
+etc/media_profiles.xml
 etc/usf_post_boot.sh
 etc/xtwifi.conf
 lib/hw/audio.primary.msm8960.so
