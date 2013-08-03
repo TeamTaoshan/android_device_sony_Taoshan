@@ -48,8 +48,7 @@ etc/firmware/tzsuntory.b03
 etc/firmware/tzsuntory.mdt
 etc/flashled_calc_parameters.cfg
 etc/thermald.conf
-lib/hw/camera.msm8230.so
-lib/hw/camera.qcom.so
+lib/hw/camera.msm8960.so
 lib/hw/gps.default.so
 lib/hw/nfc.msm8230.so
 lib/libQSEEComAPI.so
