@@ -70,6 +70,7 @@ etc/media_codecs.xml
 etc/media_profiles.xml
 etc/usf_post_boot.sh
 etc/xtwifi.conf
+etc/thermald-8930.conf
 lib/hw/audio.primary.msm8960.so
 lib/hw/audio_policy.msm8960.so
 lib/hw/camera.msm8960.so
