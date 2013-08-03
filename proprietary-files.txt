@@ -48,6 +48,8 @@ etc/firmware/tzsuntory.b03
 etc/firmware/tzsuntory.mdt
 etc/flashled_calc_parameters.cfg
 etc/thermald.conf
+lib/hw/audio.primary.msm8960.so
+lib/hw/audio_policy.msm8960.so
 lib/hw/camera.msm8960.so
 lib/hw/gralloc.msm8960.so
 lib/hw/hwcomposer.msm8960.so
