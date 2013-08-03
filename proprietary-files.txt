@@ -162,5 +162,5 @@ usr/keylayout/Vendor_046d_Product_c532.kl
 usr/keylayout/Vendor_054c_Product_0268.kl
 vendor/camera/APT00YP1.dat
 vendor/camera/flash.dat
-
-vendor/firmware/libpn544_fw_c3.so:vendor/firmware/libpn544_fw.so
+vendor/etc/audio_effects.conf
+vendor/firmware/libpn544_fw.so
