@@ -149,6 +149,17 @@ lib/libril-qc-qmi-1.so
 lib/libsys-utils.so
 lib/libta.so
 usr/icudt48l.dat
+usr/keylayout/gpio-keys.kl
+usr/keylayout/cyttsp-i2c.kl
+usr/keylayout/Button_Jack.kl
+usr/keylayout/Vendor_05ac_Product_0239.kl
+usr/keylayout/Vendor_22b8_Product_093d.kl
+usr/keylayout/Vendor_045e_Product_028e.kl
+usr/keylayout/Vendor_046d_Product_c216.kl
+usr/keylayout/Vendor_046d_Product_c294.kl
+usr/keylayout/Vendor_046d_Product_c299.kl
+usr/keylayout/Vendor_046d_Product_c532.kl
+usr/keylayout/Vendor_054c_Product_0268.kl
 vendor/camera/APT00YP1.dat
 vendor/camera/flash.dat
 
