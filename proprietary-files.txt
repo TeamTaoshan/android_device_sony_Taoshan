@@ -52,7 +52,9 @@ lib/hw/camera.msm8960.so
 lib/hw/gralloc.msm8960.so
 lib/hw/hwcomposer.msm8960.so
 lib/hw/gps.default.so
-lib/hw/nfc.msm8230.so
+lib/hw/nfc.default.so
+lib/hw/sensors.msm8960.so
+lib/hw/sensors.qcom.so
 lib/libQSEEComAPI.so
 lib/lib_get_secure_mode.so
 lib/libacdbloader.so
