@@ -103,6 +103,10 @@ lib/libdrmtime.so
 lib/libQSEEComAPI.so
 lib/libtzplayready.so
 
+# Misc
+lib/hw/hwcomposer.msm8960.so
+lib/libhwcservice.so
+
 # Offline Charging
 bin/chgonly
 # Yet to be populated
