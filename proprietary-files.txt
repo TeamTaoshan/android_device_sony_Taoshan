@@ -1,82 +1,67 @@
-# Bins
 bin/btnvtool
-bin/fm_qsoc_patches
-bin/hci_qcom_init
-bin/mpdecision
-
-# Thermal
-bin/thermald
-etc/thermald.conf
-
-
-# Audio
-lib/acdbloader.so
-lib/libaudcal.so
-
-# mmparser extended
-lib/libDivxDrm.so
-lib/SHIMDivxDrm.so
-lib/mmparser.so
-lib/mmosal.so
-
-# Adreno
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-lib/egl/eglsubAndroid.so
-lib/egl/libGLESv1_CM_adreno200.so
-lib/egl/libGLESv2S3D_adreno200.so
-lib/egl/libGLESv2_adreno200.so
-lib/egl/libq3dtools_adreno200.so
-lib/libC2D2.so
-lib/libc2d2_a3xx.so
-lib/libgsl.so
-lib/libllvm-a3xx.so
-lib/libOpenCL.so
-lib/libOpenVG.so
-lib/libsc-a3xx.so
-
-# Graphics
-lib/libmm-color-convertor.so
-
-# Radio
 bin/ds_fmc_appd
+bin/efsks
+bin/fm_qsoc_patches
+bin/fmconfig
+bin/hci_qcomm_init
+bin/ks
+bin/mpdecision
 bin/netmgrd
-bin/qmiproxy
+bin/qcks
 bin/qmuxd
-bin/rild
+bin/qseecomd
 bin/rmt_storage
+bin/ta_qmi_service
+bin/taimport
+bin/thermald
+bin/updatemiscta
+bin/usbhub
+bin/usbhub_init
+etc/firmware/q6.b00
+etc/firmware/q6.b01
+etc/firmware/q6.b03
+etc/firmware/q6.b04
+etc/firmware/q6.b05
+etc/firmware/q6.b06
+etc/firmware/q6.mdt
+etc/firmware/tzlibasb.b00
+etc/firmware/tzlibasb.b01
+etc/firmware/tzlibasb.b02
+etc/firmware/tzlibasb.b03
+etc/firmware/tzlibasb.mdt
+etc/firmware/tzsuntory.b00
+etc/firmware/tzsuntory.b01
+etc/firmware/tzsuntory.b02
+etc/firmware/tzsuntory.b03
+etc/firmware/tzsuntory.mdt
+lib/hw/camera.msm8960.so
+lib/hw/gps.default.so
+lib/hw/nfc.default.so
+lib/libQSEEComAPI.so
+lib/lib_get_secure_mode.so
+lib/libacdbloader.so
+lib/libaudcal.so
+lib/libcredential-manager-service.so
+lib/libcsd-client.so
 lib/libdiag.so
+lib/libdrmdiag.so
+lib/libdrmfs.so
 lib/libdsi_netctrl.so
 lib/libdsutils.so
-lib/libnetmgr.so
-lib/libqdi.so
-lib/libqdp.so
-lib/libril-qcril-hook-oem.so
-lib/libtime_genoff.so
-lib/libidl.so
-lib/libqcci_legacy.so
-lib/libqmi.so
-lib/libqmi_cci.so
-lib/libqmi_client_qmux.so
-lib/libqmi_common_so.so
-lib/libqmi_csi.so
-lib/libqmi_encdec.so
-lib/libqmiservices.so
-
-# GPS
-lib/libloc_api_v02.so
-
-# Sensors
-lib/hw/sensors.msm8960.so
-
-# Camera
-bin/mm-qcamera-daemon
-lib/hw/camera.msm8960.so
+lib/libface.so
+lib/libfmradio.so
 lib/libgemini.so
+lib/libgps.utils.so
+lib/libidl.so
 lib/libimage-jpeg-dec-omx-comp.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-omx-common.so
-lib/libmmcamera_faceproc.so
+lib/libkeyctrl.so
+lib/liblights-core.so
+lib/libloc_adapter.so
+lib/libloc_api_v02.so
+lib/libloc_eng.so
+lib/libmiscta.so
 lib/libmmcamera_frameproc.so
 lib/libmmcamera_hdr_lib.so
 lib/libmmcamera_image_stab.so
@@ -84,29 +69,20 @@ lib/libmmcamera_interface2.so
 lib/libmmcamera_statsproc31.so
 lib/libmmcamera_wavelet_lib.so
 lib/libmmjpeg.so
-lib/libmmmpod.so
 lib/libmmstillomx.so
+lib/libnetmgr.so
 lib/liboemcamera.so
-# Much more to be populated here
-
-# Wi-Fi
-etc/wifi/wpa_supplicant.conf
-
-# Perf
+lib/libpin-cache.so
 lib/libqc-opt.so
-
-# DRM
-bin/qseecomd
-lib/libdrmdecrypt.so
-lib/libdrmfs.so
-lib/libdrmtime.so
-lib/libQSEEComAPI.so
-lib/libtzplayready.so
-
-# Misc
-lib/hw/hwcomposer.msm8960.so
-lib/libhwcservice.so
-
-# Offline Charging
-bin/chgonly
-# Yet to be populated
+lib/libqcci_legacy.so
+lib/libqdi.so
+lib/libqdp.so
+lib/libqmi.so
+lib/libqmi_cci.so
+lib/libqmi_client_qmux.so
+lib/libqmi_common_so.so
+lib/libqmi_csi.so
+lib/libqmi_encdec.so
+lib/libqmiservices.so
+lib/libril-qc-qmi-1.so
+lib/libta.so

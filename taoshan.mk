@@ -87,4 +87,80 @@ PRODUCT_PACKAGES += \
     libnetcmdiface \
     WCNSS_qcom_wlan_nv.bin
 
+# lib_net_iface_cmd
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
+# QCOM Display
+PRODUCT_PACKAGES += \
+    hwcomposer.msm8960 \
+    gralloc.msm8960 \
+    copybit.msm8960
+
+# Radio and Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+    telephony.lteOnCdmaDevice=0 \
+    telephony.lteOnGsmDevice=1 \
+    ro.ril.transmitpower=true \
+    persist.radio.add_power_save=1
+
+# Do not power down SIM card when modem is sent to Low Power Mode.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.apm_sim_not_pwdn=1
+
+# Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.call_ring.multiple=0
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/lib/libril-qc-qmi-1.so
+
+# QCOM hardware
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+BOARD_USES_QCOM_HARDWARE := true
+
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+BOARD_HAS_NO_MISC_PARTITION := true
+
+# Architecture
+TARGET_ARCH := arm
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+
+# Power HAL
+TARGET_PROVIDES_POWERHAL := true
+
+# Graphics
+TARGET_QCOM_DISPLAY_VARIANT := caf
+USE_OPENGL_RENDERER := true
+TARGET_USES_ION := true
+TARGET_USES_C2D_COMPOSITION := true
+
+# Camera
+TARGET_PROVIDES_CAMERA_HAL := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_CAMERA_ABI_HACK -DMR0_CAMERA_BLOB
+COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
+
+ifeq ($(BOARD_EGL_CFG),)
+BOARD_EGL_CFG := device/sony/qcom-common/rootdir/system/lib/egl/egl.cfg
+endif
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+
+# Audio
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
+
+# Bluetoth
+BOARD_HAVE_BLUETOOTH := true
+
+# Webkit
+ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
+
 $(call inherit-product-if-exists, vendor/sony/taoshan/taoshan-vendor.mk)
