@@ -1,4 +1,2 @@
-android_device_sony_taoshan
-===========================
-
-Device configuration files for Xperia L aka taoshan
+android_device_sony_mint
+========================

@@ -14,11 +14,14 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/sony/taoshan
+# Inherit the blue-common definitions
+$(call inherit-product, device/sony/blue-common/blue.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/sony/taoshan/overlay
+
+# These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    device/sony/taoshan/zImage:kernel
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -27,140 +30,28 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Configuration scripts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/etc/sensors.conf:system/etc/sensors.conf \
+    $(LOCAL_PATH)/rootdir/system/etc/pre_hw_config.sh:system/etc/pre_hw_config.sh \
+    $(LOCAL_PATH)/rootdir/system/etc/hw_config.sh:system/etc/hw_config.sh
+
+# Device specific init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init.device.rc:root/init.device.rc
+
+# USB function switching
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init.sony.usb.rc:root/init.sony.usb.rc
+
 # Device specific part for two-stage boot
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/bootrec-device:recovery/bootrec-device
 
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
-
-# Audio
+#Build DeviceParts
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.usb.default \
-    libaudioutils
+    XperiaSettings
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    hciconfig \
-    hcitool
-
-# Misc
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    HoloSpiralWallpaper \
-    VisualizationWallpapers \
-    librs_jni
-
-# Wifi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/config/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/config/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-
-#wifi
-PRODUCT_PACKAGES += \
-    libnetcmdiface \
-    WCNSS_qcom_wlan_nv.bin
-
-# lib_net_iface_cmd
-PRODUCT_PACKAGES += \
-    libnetcmdiface
-
-# QCOM Display
-PRODUCT_PACKAGES += \
-    hwcomposer.msm8960 \
-    gralloc.msm8960 \
-    copybit.msm8960
-
-# Radio and Telephony
-PRODUCT_PROPERTY_OVERRIDES += \
-    telephony.lteOnCdmaDevice=0 \
-    telephony.lteOnGsmDevice=1 \
-    ro.ril.transmitpower=true \
-    persist.radio.add_power_save=1
-
-# Do not power down SIM card when modem is sent to Low Power Mode.
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.apm_sim_not_pwdn=1
-
-# Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.call_ring.multiple=0
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/lib/libril-qc-qmi-1.so
-
-# QCOM hardware
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-BOARD_USES_QCOM_HARDWARE := true
-
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-BOARD_HAS_NO_MISC_PARTITION := true
-
-# Architecture
-TARGET_ARCH := arm
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
-
-# Power HAL
-TARGET_PROVIDES_POWERHAL := true
-
-# Graphics
-TARGET_QCOM_DISPLAY_VARIANT := caf
-USE_OPENGL_RENDERER := true
-TARGET_USES_ION := true
-TARGET_USES_C2D_COMPOSITION := true
-
-# Camera
-TARGET_PROVIDES_CAMERA_HAL := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_CAMERA_ABI_HACK -DMR0_CAMERA_BLOB
-COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
-
-ifeq ($(BOARD_EGL_CFG),)
-BOARD_EGL_CFG := device/sony/qcom-common/rootdir/system/lib/egl/egl.cfg
-endif
-
-# RIL
-BOARD_PROVIDES_LIBRIL := true
-
-# Audio
-TARGET_QCOM_AUDIO_VARIANT := caf
-TARGET_USES_QCOM_COMPRESSED_AUDIO := true
-
-# Bluetoth
-BOARD_HAVE_BLUETOOTH := true
-
-# Webkit
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true
+$(call inherit-product, frameworks/native/build/phone-hdpi-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, vendor/sony/taoshan/taoshan-vendor.mk)
