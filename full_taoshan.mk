@@ -21,7 +21,11 @@
 # lines, full and maguro, hence its name.
 #
 #
- 
+
+# Screen resoultion in Pixels.
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+
 # Torch
 PRODUCT_PACKAGES := \
     Torch
@@ -30,9 +34,9 @@ PRODUCT_PACKAGES := \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Common Sony Resources
-$(call inherit-product, device/sony/common/resources-hdpi.mk)
+$(call inherit-product, device/sony/common/resources-xhdpi.mk)
 
-# Inherit from taoshan device
+# Inherit from (this) taoshan device makefile
 $(call inherit-product, device/sony/taoshan/taoshan.mk)
 
 # Set those variables here to overwrite the inherited values.
@@ -40,4 +44,4 @@ PRODUCT_NAME := full_taoshan
 PRODUCT_DEVICE := taoshan
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := Xperia L
+PRODUCT_MODEL := C2104
